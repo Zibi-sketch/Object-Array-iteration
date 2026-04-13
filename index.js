@@ -114,3 +114,80 @@ function gameObject() {
         },
     };
 }
+const game = gameObject();
+
+function numPointsScored(playerName) {
+    if (game.away.players[playerName]) {
+        return game.away.players[playerName].points;
+    }
+    else if (game.home.players[playerName]) {
+        return game.home.players[playerName].points;
+    }
+    else {
+        return "Player not found.";
+    }
+}
+
+function shoeSize(playerName) {
+    if (game.away.players[playerName]) {
+        return game.away.players[playerName].shoe;
+    }
+    else if (game.home.players[playerName]) {
+        return game.home.players[playerName].shoe;
+    }
+    else {
+        return "Player not found.";
+    }
+}
+
+function teamColors(teamName) {
+    if (game.away.teamName === teamName) {
+        return game.away.colors;
+    }
+    else if (game.home.teamName === teamName) {
+        return game.home.colors;
+    }
+    else {
+        return "Team not found.";
+    }
+}
+
+function teamNames() {
+    return [game.home.teamName, game.away.teamName];
+}
+
+function playerNumbers(teamName) {
+   let players;
+   if (game.home.teamName ===teamName){
+    players = game.home.players;
+   }
+   else if(game.away.teamName ===teamName){
+    players = game.away.players;
+   }
+    else{
+        return "Team not available.";
+    }
+    let numbers=[];
+   for(let player in players){
+    numbers.push(players[player].number);
+
+   }
+   return numbers;
+}
+
+function playerStats(playerName){
+    if (game.away.players[playerName]) {
+        return game.away.players[playerName];
+    }
+    else if (game.home.players[playerName]) {
+        return game.home.players[playerName];
+    }
+    else{
+        return"Player not found.";
+    }
+}
+
+function bigShoeRebounds(){
+    return game.home.players["Mason Plumlee"].rebounds;
+}
+
