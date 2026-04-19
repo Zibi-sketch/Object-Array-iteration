@@ -191,3 +191,42 @@ function bigShoeRebounds(){
     return game.home.players["Mason Plumlee"].rebounds;
 }
 
+function mostPointsScored() {
+    const game = gameObject();
+
+    const allPlayers = {
+        ...game.home.players,
+        ...game.away.players,
+    };
+
+    let maxPoints = -Infinity;
+    let topPlayer = "";
+
+    for (let player in allPlayers) {
+        if (allPlayers[player].points > maxPoints) {
+            maxPoints = allPlayers[player].points;
+            topPlayer = player;
+        }
+    }
+
+    return topPlayer;
+}
+
+
+function playerWithLongestName() {
+  const game = gameObject();
+  const allPlayers = {
+    ...game.home.players,
+    ...game.away.players
+  };
+
+  let longestName = "";
+
+  for (const playerName in allPlayers) {
+    if (playerName.length > longestName.length) {
+      longestName = playerName;
+    }
+  }
+
+  return longestName;
+}
